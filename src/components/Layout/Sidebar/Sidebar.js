@@ -35,6 +35,7 @@ const Sidebar = () => {
     return (
         <div className={classes.Bar}>
             <div className={classes.profilecard}>
+                <h2>DoctorBhai</h2>
                 <div className={classes.Content}>
                     <div className={classes.profileImg}>
                         <img src={pic} alt="pp" />
@@ -48,11 +49,11 @@ const Sidebar = () => {
             </div>
 
             <ul className={classes.Menus}>
-                <li className={location.pathname === '/' ? classes.active : ''}>
-                    <Link to="/">Find Doctors</Link>
+                <li className={location.pathname === '/dashboard' ? classes.active : ''}>
+                    <Link to="/dashboard">Find Doctors</Link>
                 </li>
-                <li className={location.pathname === '/' ? classes.active : ''}>
-                    <Link to="/">Appointments</Link>
+                <li className={location.pathname === '/appointment' ? classes.active : ''}>
+                    <Link to="/appointment">Appointments</Link>
                 </li>
                 <li className={location.pathname === '/' ? classes.active : ''}>
                     <Link to="/auth">Settings</Link>

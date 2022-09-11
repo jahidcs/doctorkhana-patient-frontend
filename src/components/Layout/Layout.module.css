@@ -8,8 +8,9 @@
 .Container {
     display: grid;
     grid-template-columns: minmax(0, 15%) minmax(0, 85%);
+    gap: 10px;
 }
 
 .Content {
-    margin: 50px;
+    margin: 0;
 }
