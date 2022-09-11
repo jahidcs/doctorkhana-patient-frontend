@@ -14,6 +14,8 @@ const AppointmentDetails = () => {
 
     const [doctor, setDoctor] = useState('')
     const [day, setDay] = useState('')
+    const [start, setStart] = useState('')
+    const [end, setEnd] = useState('')
 
     useEffect(() => {
         const fetchDoctor = async () => {
@@ -39,6 +41,8 @@ const AppointmentDetails = () => {
                 },
             })
             const data = await response.json()
+            setStart(data[0].start_time)
+            setEnd(data[0].end_time)
             setDay(data[0].schedule_day)
         }
 
@@ -47,6 +51,7 @@ const AppointmentDetails = () => {
             fetchSchedule()
         } catch (e) {}
     }, [api, access_token, id, scheduleId])
+
     return (
         <div className={classes.Container}>
             <div className={classes.detailsContainer}>
@@ -62,6 +67,13 @@ const AppointmentDetails = () => {
                 <p>
                     <span className={classes.key}>Day </span>
                     <span className={classes.value}>{day}</span>
+                </p>
+
+                <p>
+                    <span className={classes.key}>Time </span>
+                    <span className={classes.value}>
+                        {start} - {end}
+                    </span>
                 </p>
 
                 <p>
