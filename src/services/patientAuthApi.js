@@ -41,7 +41,53 @@ export const patientAuthApi = createApi({
                 }
             },
         }),
+
+        doctorSearch: builder.mutation({
+            query: (data) => {
+                return {
+                    url: 'doctor-list/',
+                    method: 'POST',
+                    body: data,
+                    headers: {
+                        'Content-type': 'application/json',
+                    },
+                }
+            },
+        }),
+
+        doctorProfile: builder.query({
+            query: ({ access_token, id }) => {
+                return {
+                    url: `doctor-profile/${id}`,
+                    method: 'GET',
+                    headers: {
+                        authorization: `Bearer ${access_token}`,
+                    },
+                }
+            },
+        }),
+
+        appointmentBook: builder.mutation({
+            query: ({ actualData, access_token }) => {
+                return {
+                    url: 'appointment/',
+                    method: 'POST',
+                    body: actualData,
+                    headers: {
+                        'Content-type': 'application/json',
+                        authorization: `Bearer ${access_token}`,
+                    },
+                }
+            },
+        }),
     }),
 })
 
-export const { useLoginPatientMutation, useOtpCheckMutation, useProfileAccessQuery } = patientAuthApi
+export const {
+    useLoginPatientMutation,
+    useOtpCheckMutation,
+    useProfileAccessQuery,
+    useDoctorSearchMutation,
+    useDoctorProfileQuery,
+    useAppointmentBookMutation,
+} = patientAuthApi
