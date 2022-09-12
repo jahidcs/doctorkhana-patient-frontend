@@ -12,7 +12,7 @@ const Appointments = () => {
 
     useEffect(() => {
         const fetchAppointments = async () => {
-            const response = await fetch(`${api}/appointment-list/?pat_id=23`, {
+            const response = await fetch(`${api}/appointment-list-user/`, {
                 method: 'GET',
                 headers: {
                     Accept: 'application/json',
