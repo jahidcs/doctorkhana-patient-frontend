@@ -27,13 +27,6 @@ const AppointmentBook = () => {
     }
     return (
         <div className={classes.Container}>
-            <>
-                {location.state.schedule_id}
-                {location.state.did}
-                {location.state.schedule_day}
-                {location.state.did}
-            </>
-
             <div className={classes.formContainer}>
                 <form onSubmit={handleBook}>
                     <div className={classes.sectionHeader}>Appointment for {day}</div>

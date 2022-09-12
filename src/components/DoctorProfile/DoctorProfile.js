@@ -70,16 +70,21 @@ const DoctorProfile = () => {
             <div className={classes.tableContainer}>
                 <h2>Schedules</h2>
                 <table>
-                    <thead>
-                        <tr>
-                            <th>Day</th>
-                            <th>Start Time</th>
-                            <th>End Time</th>
-                            <th>Status</th>
-                            <th>Consultency duration</th>
-                            <th>Book</th>
-                        </tr>
-                    </thead>
+                    {data.length === 0 ? (
+                        <h3>No Schdule Added</h3>
+                    ) : (
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Start Time</th>
+                                <th>End Time</th>
+                                <th>Status</th>
+                                <th>Consultency duration</th>
+                                <th>Book</th>
+                            </tr>
+                        </thead>
+                    )}
+
                     <tbody>
                         {data.lenght === 0 ? (
                             'No Schedule Added'
@@ -91,8 +96,11 @@ const DoctorProfile = () => {
                                             <td>{schedule.schedule_day}</td>
                                             <td>{schedule.start_time}</td>
                                             <td>{schedule.end_time}</td>
-                                            <td className={schedule.active ? `${classes.yes}` : `${classes.no}`}>
-                                                {schedule.active ? 'Active' : 'Not Active'}
+                                            <td
+                                                className={
+                                                    schedule.schedule_status ? `${classes.yes}` : `${classes.no}`
+                                                }>
+                                                {schedule.schedule_status ? 'Active' : 'Not Active'}
                                             </td>
                                             <td>{schedule.avg_consulting_time}</td>
                                             <td className={classes.viewButton}>

@@ -35,7 +35,7 @@ const Sidebar = () => {
     return (
         <div className={classes.Bar}>
             <div className={classes.profilecard}>
-                <h2>DoctorBhai</h2>
+                <h2>DoctorKhana</h2>
                 <div className={classes.Content}>
                     <div className={classes.profileImg}>
                         <img src={pic} alt="pp" />
